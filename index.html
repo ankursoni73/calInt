@@ -1,7 +1,28 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <p>Hare Krishna
-  </body>
+<head>
+<title>HareKrsna</title>
+</head>
+<body>
+<script>
+function calculateInt() {
+  var rate = document.getElementById("rate").value;
+  var amount = document.getElementById("amount").value;
+  var days = document.getElementById("days").value;
+  var i= ((rate*amount*days)/(100*30));
+  var total = Number(amount) + i;
+  document.getElementById("intrest").innerHTML = "Intrest :"+ i ;
+  document.getElementById("totalamount").innerHTML = "Total Amount :"+ total;
+}
+</script>
+<h4>Rate <input type="text" id="rate" name="rate"></h4>
+<h4>Amount <input type="text" id="amount" name="amount"></h4>
+<h4>Days <input type="text" id="days" name="days"></h4>
+<button type="button" onclick="calculateInt()">Calculate</button>
+<h3 id="intrest">Intrest :</h3>
+<h3 id="totalamount">Total Amount :</h3>
+</body>
 </html>
+
 
 
