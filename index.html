@@ -10,7 +10,7 @@
 function calculateInt() {
   var rate = document.getElementById("rate").value;
   var amount = document.getElementById("amount").value;
-  
+
   var from = document.getElementById("from").value;
   var to = document.getElementById("to").value;
   var todate = new Date(to);
@@ -19,11 +19,11 @@ function calculateInt() {
   let millisecondsInADay = (1000 * 3600 * 24);
   let days = Math.ceil(timeDifference / millisecondsInADay);
   document.getElementById("days").innerHTML ="Days :"+ days;
-  
+
   var i= ((rate*amount*days)/(100*30));
   var total = Number(amount) + i;
-  document.getElementById("intrest").innerHTML = "Intrest :"+ i ;
-  document.getElementById("totalamount").innerHTML = "Total Amount :"+ total;
+  document.getElementById("intrest").innerHTML = "Intrest :"+ Math.round(i) ;
+  document.getElementById("totalamount").innerHTML = "Total Amount :"+ Math.round(total);
 }
 </script>
 <h4>Rate <input type="text" id="rate" name="rate" value="1.5"></h4>
