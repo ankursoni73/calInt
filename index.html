@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HareKrsna</title>
+
 </head>
 <body>
 <script>
 function calculateInt() {
   var rate = document.getElementById("rate").value;
   var amount = document.getElementById("amount").value;
-  var days = document.getElementById("days").value;
+  
+  var from = document.getElementById("from").value;
+  var to = document.getElementById("to").value;
+  var todate = new Date(to);
+  var fromdate = new Date(from);
+  let timeDifference = Math.abs(todate.getTime() - fromdate.getTime());
+  let millisecondsInADay = (1000 * 3600 * 24);
+  let days = Math.ceil(timeDifference / millisecondsInADay);
+  document.getElementById("days").innerHTML ="Days :"+ days;
+  
   var i= ((rate*amount*days)/(100*30));
   var total = Number(amount) + i;
   document.getElementById("intrest").innerHTML = "Intrest :"+ i ;
@@ -18,12 +28,13 @@ function calculateInt() {
 </script>
 <h4>Rate <input type="text" id="rate" name="rate" value="1.5"></h4>
 <h4>Amount <input type="text" id="amount" name="amount"></h4>
-<h4>Days <input type="text" id="days" name="days"></h4>
+<h4><label for="from">From:</label></h4>
+<h4><input type="date" id="from" name="from"></h4>
+<h4><label for="to">To:</label></h4>
+<h4><input type="date" id="to" name="to"></h4>
 <button type="button" onclick="calculateInt()">Calculate</button>
+<h4 id="days">Days :</h4>
 <h3 id="intrest">Intrest :</h3>
 <h3 id="totalamount">Total Amount :</h3>
 </body>
 </html>
-
-
-
