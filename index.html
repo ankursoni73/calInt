@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HareKrsna</title>
+<script type="text/javascript" src="data.json"></script>
 </head>
 <body>
 <script>
@@ -34,9 +35,20 @@ function calculateInt() {
 <h4><label for="to">To:</label></h4>
 <h4><input type="date" id="to" name="to"></h4>
 <button type="button" onclick="calculateInt()">Calculate</button>
-<h1 id="days">Days :</h1>
-<h1 id="intrest">Intrest :</h1>
-<h1 id="totalamount">Total Amount :</h1></div>
+<h3 id="days">Days :</h3>
+<h3 id="intrest">Intrest :</h3>
+<h3 id="totalamount">Total Amount :</h3></div>
+<br>
+<button onclick="displayCustomerList()">All Customer Details</button>
+<p id="customerName"></p>
+<p id="customerAge"></p>
+    <script>
+       function displayCustomerList() {
+        	var mydata = JSON.parse(data);
+          document.getElementById("customerName").innerHTML = mydata[0].name;
+          document.getElementById("customerAge").innerHTML = mydata[0].age;
+        }
+    </script>
 </body>
 </html>
 <marquee direction="left">॥प्रबिसि नगर कीजे सब काजा। हृदयँ राखि कौसलपुर राजा॥</marquee>
