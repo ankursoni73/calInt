@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>HareKrsna</title>
 <script type="text/javascript" src="data.json"></script>
 </head>
@@ -25,30 +28,43 @@ function calculateInt() {
 }
 </script>
 
-<div style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2q68SRbd_9yU68JIS23cpaxa8SKb97tcVEQ&usqp=CAU);">
-<marquee direction="left">ॐ॥हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे॥
-हरे राम हरे राम राम राम हरे हरे॥ॐ</marquee>
-<h4>Rate <input type="text" id="rate" name="rate" value="1.5"></h4>
-<h4>Amount <input type="text" id="amount" name="amount"></h4>
-<h4><label for="from">From:</label></h4>
-<h4><input type="date" id="from" name="from"></h4>
-<h4><label for="to">To:</label></h4>
-<h4><input type="date" id="to" name="to"></h4>
-<button type="button" onclick="calculateInt()">Calculate</button>
-<h3 id="days">Days :</h3>
-<h3 id="intrest">Intrest :</h3>
-<h3 id="totalamount">Total Amount :</h3></div>
-<br>
-<button onclick="displayCustomerList()">All Customer Details</button>
-<p id="customerName"></p>
-<p id="customerAge"></p>
-    <script>
-       function displayCustomerList() {
-        	var mydata = JSON.parse(data);
-          document.getElementById("customerName").innerHTML = mydata[0].name;
-          document.getElementById("customerAge").innerHTML = mydata[0].age;
-        }
-    </script>
+<div class="container">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#calculateInt">Calculate Intrest</button>
+   <button type="button" onclick="displayCustomerList()" class="btn btn-info" data-toggle="collapse" data-target="#customerDetails">All Customer Details</button>
+  <div id="calculateInt" class="collapse in">
+    <marquee direction="left">ॐ॥हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे॥
+    हरे राम हरे राम राम राम हरे हरे॥ॐ</marquee>
+    <h4>Rate <input type="text" id="rate" name="rate" value="1.5"></h4>
+    <h4>Amount <input type="text" id="amount" name="amount"></h4>
+    <h4><label for="from">From:</label></h4>
+    <h4><input type="date" id="from" name="from"></h4>
+    <h4><label for="to">To:</label></h4>
+    <h4><input type="date" id="to" name="to"></h4>
+    <button type="button" onclick="calculateInt()">Calculate</button>
+    <h3 id="days">Days :</h3>
+    <h3 id="intrest">Intrest :</h3>
+    <h3 id="totalamount">Total Amount :</h3>
+  </div>
+  <div id="customerDetails" class="collapse">
+    <p id="customerTable"></p>
+        <script>
+           function displayCustomerList() {
+            	var mydata = JSON.parse(data);
+              let text = "<table style='border: 1px solid;width: 100%;' border='1'><tr><th>Name</th><th>Date</th><th>Amount</th><th>Details</th></tr>";
+              for (let x in mydata) {
+                text += "<tr>";
+                text += "<td>" + mydata[x].name + "</td>";
+                text += "<td>" + mydata[x].date + "</td>";
+                text += "<td>" + mydata[x].amount + "</td>";
+                text += "<td>" + mydata[x].details + "</td>";
+                text += "</tr>";
+              }
+              text += "</table>"
+              document.getElementById("customerTable").innerHTML = text;
+            }
+        </script>
+  </div>
+</div>
 </body>
 </html>
 <marquee direction="left">॥प्रबिसि नगर कीजे सब काजा। हृदयँ राखि कौसलपुर राजा॥</marquee>
