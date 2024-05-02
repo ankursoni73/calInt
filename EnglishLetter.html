@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Om_symbol.svg/712px-Om_symbol.svg.png?20071210180542" type="image/x-icon">
+  <title>श्री कृष्णा</title>
+  <style>
+       footer {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           background-color: #f5f5f5;
+           padding: 20px;
+           text-align: center;
+       }
+   </style>
+</head>
+<body>
+  <marquee behavior="scroll" direction="left" style="color: red;font-size: 50px" scrollamount="10">
+    हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे।
+    हरे राम हरे राम राम राम हरे हरे।।
+   </marquee>
+  <p id="display"  style="color: green; font-size: 200px;"></p>
+
+  <script>
+    function displayInput(event) {
+      if (event.key=='Backspace') {
+        display.innerHTML ="";
+        document.getElementById("inputField").value = "";
+      }else{
+      display.innerHTML = document.getElementById("inputField").value+event.key;
+      }
+    }
+  </script>
+
+    <footer>
+      <input type="text" autofocus id="inputField" onkeydown="displayInput(event)">
+    </footer>
+</body>
+</html>
