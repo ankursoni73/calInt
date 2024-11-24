@@ -26,12 +26,32 @@ function calculateInt() {
   document.getElementById("intrest").innerHTML = "Intrest :"+ Math.round(i) ;
   document.getElementById("totalamount").innerHTML = "Total Amount :"+ Math.round(total);
 }
+ function goldPurityCal() {
+    var air = document.getElementById("airW").value;
+    var liq = document.getElementById("liqW").value;
+    var D_liquid = 0.83;
+    var goldDensity = 19.32;
+    var diff = Number(air) - Number(liq);
+    var vol = Number(diff / D_liquid);
+    var weightIfPure = Number(goldDensity * vol);
+    var result = Number((air / weightIfPure)*100);
+  document.getElementById("goldPurity").innerHTML = "Gold Purity:"+ result.toFixed(3)+" %";
+}
 </script>
 
 <div class="container">
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#calculateGoldPurity">GoldPurity</button>
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#calculateInt">Calculate Intrest</button>
    <button type="button" onclick="displayCustomerList()" class="btn btn-info" data-toggle="collapse" data-target="#customerDetails">All Customer Details</button>
-  <div id="calculateInt" class="collapse in">
+ <div id="calculateGoldPurity" class="collapse in">
+     <marquee direction="left">ॐ॥हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे॥
+     हरे राम हरे राम राम राम हरे हरे॥ॐ</marquee>
+     <h4>Air Wt : <input type="text" id="airW" name="airW"></h4>
+     <h4>Liquid Wt : <input type="text" id="liqW" name="liqW"></h4>
+     <button type="button" onclick="goldPurityCal()">CheckGoldPurity</button>
+     <h3 id="goldPurity"></h3>
+   </div> 
+ <div id="calculateInt" class="collapse">
     <marquee direction="left">ॐ॥हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे॥
     हरे राम हरे राम राम राम हरे हरे॥ॐ</marquee>
     <h4>Rate <input type="text" id="rate" name="rate" value="1.5"></h4>
